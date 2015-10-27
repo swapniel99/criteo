@@ -12,12 +12,12 @@ The above code gives log-loss of about 0.46881 on private leaderboard ranking ar
 Our code implements Logistic Regression using SGD, Adagrad, Hashing trick and Quadratic interactions
 
 Salient improvements over original code:
-> Uses adagrad which accumulates squared gradients instead of number of occurrences of a feature.
-> Added a fudge factor for adagrad instead of constant 1. This is initialized only in beginning instead of being added at each step.
-> The hashed feature vector x is nolonger a bit map, but saves count of occurences of a feature in an example.
-> Used murmur3 hash. For purpose of speeding up with pypy, a python implementation(pymmh3) was used.
-> Option to use signed hash instead of unsigned hash. It cancels out collisons by 50%.
-> Added option to enable quadratic interaction for pairs of features.
+* Uses adagrad which accumulates squared gradients instead of number of occurrences of a feature.
+* Added a fudge factor for adagrad instead of constant 1. This is initialized only in beginning instead of being added at each step.
+* The hashed feature vector x is nolonger a bit map, but saves count of occurences of a feature in an example.
+* Used murmur3 hash. For purpose of speeding up with pypy, a python implementation(pymmh3) was used.
+* Option to use signed hash instead of unsigned hash. It cancels out collisons by 50%.
+* Added option to enable quadratic interaction for pairs of features.
 
 The code as is gives a log-loss of 0.45321 on private leaderboard. Sufficient to place us on 22nd rank.
 
@@ -30,10 +30,11 @@ pymmh3.py is imported from here:
 <https://github.com/wc-duck/pymmh3>
 
 Instructions:
-> Get data from:  <https://www.kaggle.com/c/criteo-display-ad-challenge/data>
-> Rename training file to train.tsv and test file to test.tsv
-> Run criteo.py using pypy
+
+1. Get data from:  <https://www.kaggle.com/c/criteo-display-ad-challenge/data>
+2. Rename training file to train.tsv and test file to test.tsv
+3. Run criteo.py using pypy
 
 ToDo:
-> Add regularization
+* Add regularization
 
