@@ -19,6 +19,9 @@ signed = False    # Use signed hash? Set to False for to reduce number of hash c
 
 interaction = True
 
+lambda1 = 0.
+lambda2 = 0.
+
 if interaction:
     alpha = .004  # learning rate for sgd optimization
 else:
@@ -104,10 +107,10 @@ def update_w(w, g, x, p, y):
         # alpha / (sqrt(g) + 1) is the adaptive learning rate heuristic
         # (p - y) * x[i] is the current gradient
         # note that in our case, if i in x then x[i] = 1
-        delta = (p - y) * xi
-        w[i] -= delta * alpha / (sqrt(g[i]) ** adapt)  # Minimising log loss
+        delta = (p - y) * xi + lambda1 + lambda2 * w[i]
         if adapt > 0:
             g[i] += delta ** 2
+        w[i] -= delta * alpha / (sqrt(g[i]) ** adapt)  # Minimising log loss
     return w, g
 
 

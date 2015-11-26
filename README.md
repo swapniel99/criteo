@@ -19,7 +19,7 @@ Salient improvements over original code:
 * Option to use signed hash instead of unsigned hash. It cancels out collisons by 50%.
 * Added option to enable quadratic interaction for pairs of features.
 
-The code as is gives a log-loss of 0.45321 on private leaderboard. Sufficient to place us on 22nd rank.
+The code as is gives a log-loss of 0.45308 on private leaderboard. Sufficient to place us on 22nd rank.
 
 Lastly, it is recommended to use pypy to run this code.
 
