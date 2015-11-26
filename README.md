@@ -18,6 +18,7 @@ Salient improvements over original code:
 * Used murmur3 hash. For purpose of speeding up with pypy, a python implementation(pymmh3) was used.
 * Option to use signed hash instead of unsigned hash. It cancels out collisons by 50%.
 * Added option to enable quadratic interaction for pairs of features.
+* Added provision for setting L1 and L2 regularisation(but not being used in present commit).
 
 The code as is gives a log-loss of 0.45308 on private leaderboard. Sufficient to place us on 22nd rank.
 
@@ -32,9 +33,8 @@ pymmh3.py is imported from here:
 Instructions:
 
 1. Get data from:  <https://www.kaggle.com/c/criteo-display-ad-challenge/data>
-2. Rename training file to train.tsv and test file to test.tsv
-3. Run criteo.py using pypy
+2. Run criteo.py using pypy
 
 ToDo:
-* Add regularization
+* Check if score can be improved by setting some regularisation.
 

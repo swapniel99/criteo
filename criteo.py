@@ -7,8 +7,8 @@ from pymmh3 import hash
 
 # parameters #################################################################
 
-train = 'train.tsv'  # path to training file
-test = 'test.tsv'  # path to testing file
+train = 'train.txt'  # path to training file
+test = 'test.txt'  # path to testing file
 
 logbatch = 100000
 dotest = True
