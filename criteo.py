@@ -107,7 +107,8 @@ def update_w(w, g, x, p, y):
         # alpha / (sqrt(g) + 1) is the adaptive learning rate heuristic
         # (p - y) * x[i] is the current gradient
         # note that in our case, if i in x then x[i] = 1
-        delta = (p - y) * xi + lambda1 * ((-1.) if w[i] < 0. else 1.) + lambda2 * w[i]
+        delreg = (lambda1 * ((-1.) if w[i] < 0. else 1.) + lambda2 * w[i]) if i != 0 else 0.
+        delta = (p - y) * xi + delreg
         if adapt > 0:
             g[i] += delta ** 2
         w[i] -= delta * alpha / (sqrt(g[i]) ** adapt)  # Minimising log loss
